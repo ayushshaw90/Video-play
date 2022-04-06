@@ -1,3 +1,3 @@
 # Video-play
 
-add a file source.mkv for the file to work
+add a file resource.mkv for the file to work
