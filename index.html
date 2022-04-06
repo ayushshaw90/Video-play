@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video App</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">
+            Video player
+        </h1>
+    </div>
+    <div class="container text-center">
+    <video id = "vid" width="600" controls>
+        <source src="resource.mkv" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <br>
+    <button id="bt1" class="btn btn-info" onclick="makeLarge()">Large</button>
+    <button id="bt2" class="btn btn-primary" onclick="makeMedium()">Medium</button>
+    <button id="bt3" class="btn btn-info" onclick="makeSmall()">Small</button>
+    </div>
+</body>
+<script>
+    const vd=document.getElementById("vid");
+    function makeLarge(){
+        vd.width = 900;
+        const lst = document.getElementById("bt1").classList;
+        if(lst.contains("btn-info")){
+            lst.replace("btn-info", "btn-primary");
+            lightenButtons("bt2", "bt3");
+        }
+    }
+    function makeMedium(){
+        vd.width = 600;
+        const lst = document.getElementById("bt2").classList;
+        if(lst.contains("btn-info")){
+            lst.replace("btn-info", "btn-primary");
+            lightenButtons("bt1", "bt3")
+        }
+    }
+    function makeSmall(){
+        vd.width = 300;
+        const lst = document.getElementById("bt3").classList;
+        if(lst.contains("btn-info")){
+            lst.replace("btn-info", "btn-primary");
+            lightenButtons("bt1", "bt2")
+        }
+    }
+    function lightenButtons(str1, str2){
+        var lst = document.getElementById(str1).classList;
+        if(lst.contains("btn-primary")){
+            lst.replace("btn-primary", "btn-info");
+        }
+        lst = document.getElementById(str2).classList;
+        if(lst.contains("btn-primary")){
+            lst.replace("btn-primary", "btn-info");
+        }
+    }
+</script>
+</html>
